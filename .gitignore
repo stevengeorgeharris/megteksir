@@ -1,0 +1,3 @@
+# Don't include node_modules, use npm install to install dependancies
+node_modules/
+.sass-cache/

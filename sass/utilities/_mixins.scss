@@ -1,0 +1,109 @@
+// ==========================================================================
+// Mixins Styles
+// ==========================================================================
+
+
+/*
+ *  Font Size
+ *  =============================
+ *  Useage:
+ *  @include font-size(14px)
+ *
+ */
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size); // Function
+}
+
+
+
+/*
+ *  Background Image Fallback
+ *  =============================
+ *  Useage:
+ *  @include background-image('pattern');
+ *
+ */
+$image-path: '../img' !default;
+$fallback-extension: 'png' !default;
+$retina-suffix: '@2x';
+@mixin background-image($name, $size:false){
+    background-image: url(#{$image-path}/#{$name}.svg);
+    @if($size){
+        background-size: $size;
+    }
+    .no-svg &{
+        background-image: url(#{$image-path}/#{$name}.#{$fallback-extension});
+
+        @media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+          background-image: url(#{$image-path}/#{$name}#{$retina-suffix}.#{$fallback-extension});
+        }
+    }
+}
+
+
+
+
+/*
+ *  Cross Browser Opacity
+ *  =============================
+ *  Useage:
+ *  @include opacity(0.8);
+ *
+ */
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+
+
+/*
+ *  Prefix
+ *  =============================
+ *  Useage:
+ *  @include prefix(transform, rotate(45deg), webkit ms);
+ *
+ */
+@mixin prefix($property, $value, $prefixes: ()) {
+  @each $prefix in $prefixes {
+    #{'-' + $prefix + '-' + $property}: $value;
+  }
+
+  // Output standard non-prefixed declaration
+  #{$property}: $value;
+}
+
+
+
+/*
+ *  Responsive breakpoints
+ *  =============================
+ *  Useage:
+ *  .element {
+ *    color: red;
+ *    @include breakpoint(medium) {
+ *      color: blue;
+ *    }
+ *  }
+ *
+ */
+$breakpoints: (
+  'tiny':   ( max-width:  767px ),
+  'small':  ( min-width:  768px ),
+  'medium': ( min-width:  992px ),
+  'large':  ( min-width: 1200px ),
+  'custom': ( min-height:  40em )
+);
+
+@mixin breakpoint($name) {
+      @if map-has-key($breakpoints, $name) {
+        @media #{inspect(map-get($breakpoints, $name))} {
+      @content;
+    }
+  }
+  @else {
+    @warn "Couldn't find a breakpoint named `#{$name}`.";
+  }
+}

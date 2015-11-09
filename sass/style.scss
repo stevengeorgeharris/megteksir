@@ -1,0 +1,48 @@
+/*
+Theme Name: Matter
+Theme URI: http://
+Author: Steven Harris & Dryden Williams
+Author URI: http://madebysteven.com & http://drydenwilliams.co.uk
+Description: The best WordPress theme in da world bruu!
+Version: 1.0
+License: GNU General Public License v2 or later
+Text Domain:
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+
+// ==========================================================================
+// Vendor
+// ==========================================================================
+@import "vendor/normalize";
+
+// ==========================================================================
+// Utilities
+// ==========================================================================
+@import "utilities/variables",
+        "utilities/helpers",
+        "utilities/mixins",
+        "utilities/functions";
+
+// ==========================================================================
+// Base
+// ==========================================================================
+@import "base/base";
+
+// ==========================================================================
+// Layout
+// ==========================================================================
+@import "layout/header",
+        "layout/footer";
+
+// ==========================================================================
+// Modules
+// ==========================================================================
+@import "modules/buttons";
+
+// ==========================================================================
+// Shame
+// ==========================================================================
+// @import "pages/front-page";
