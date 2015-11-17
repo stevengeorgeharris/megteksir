@@ -12,5 +12,4 @@
 </head>
 
 <body <?php body_class(); ?> >
-
-  <!-- Google Analytics -->
+<!-- Google Analytics -->

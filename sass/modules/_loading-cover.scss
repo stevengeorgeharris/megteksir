@@ -1,0 +1,18 @@
+.loading-cover {
+  height: 100%;
+  width: 100%;
+  background-color: #ffffff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  @extend %vertical-center;
+
+  .loading-cover--inside {
+    @extend %vertical-center--inside;
+
+    img {
+      width: 300px;
+    }
+  }
+}

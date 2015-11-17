@@ -1,0 +1,26 @@
+.landing-section {
+  position: relative;
+  height: 100%;
+  text-align: center;
+
+  .landing-main-img {
+    width: 400px;
+    margin-top: 50%;
+  }
+
+  .rotate-me img {
+    width: 250px;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    margin-top: -150px;
+    margin-right: -200px;
+    // -webkit-animation:spin 4s ease-in-out infinite;
+    // -moz-animation:spin 4s ease-in-out infinite;
+    // animation:spin 4s ease-in-out infinite;
+  }
+
+  @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+  @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+  @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+}

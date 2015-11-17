@@ -1,5 +1,5 @@
   <footer class="site-footer panel">
-    footer
+
   </footer>
 
   <?php wp_footer(); ?>
